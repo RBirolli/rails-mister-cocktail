@@ -1,11 +1,7 @@
 <h1>Editing Dose</h1>
 
-<%= simple_form_for(@ingredient) do |f| %>
+<%= simple_form_for [@cocktail, @dose] do |f| %>
   <%= f.error_notification %>
-
-  <div class="form-inputs">
-    <%= f.input :name %>
-  </div>
 
   <div class="form-inputs">
     <%= f.input :description %>
@@ -15,3 +11,4 @@
     <%= f.button :submit %>
   </div>
 <% end %>
+

@@ -3,15 +3,20 @@ class DosesController < ApplicationController
 
   def new
     @dose = Dose.new
+    puts ">>>>>>>>>>>>>>>>>>>>>>    NEW    <<<<<<<<<<<<<<<<<<"
+    p @dose
   end
 
   def create
     @dose = @cocktail.doses.build(dose_params)
     @dose.save
+    puts ">>>>>>>>>>>>>>>>>>>>>>    criando    <<<<<<<<<<<<<<<<<<"
+    p @dose
+
     redirect_to cocktail_path(@cocktail)
   end
 
-  def destroy(dose)
+  def destroy
     dose = Dose.find(params[:id])
     dose.destroy
     respond_to do |format|

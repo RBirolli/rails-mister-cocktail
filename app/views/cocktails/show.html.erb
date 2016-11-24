@@ -4,6 +4,27 @@
   <strong>Name:</strong>
   <%= @cocktail.name %>
 </p>
+<br>
 
+<table>
+  <thead>
+    <tr>
+      <th>Doses</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @doses.each do |dose| %>
+      <tr>
+        <td><%= dose.description %> . </td>
+        <td><%= link_to 'Destroy', dose, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
 <%= link_to 'Edit', edit_cocktail_path(@cocktail) %> |
-<%= link_to 'Back', cocktails_path %>
+<%= link_to 'Back', cocktails_path %> |
+<%= link_to 'New dose', new_cocktail_dose_path(@cocktail) %>
